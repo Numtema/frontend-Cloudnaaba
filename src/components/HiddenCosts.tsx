@@ -99,8 +99,11 @@ export default function HiddenCosts() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="md:col-span-2 group relative p-7 rounded-[16px] bg-[#111118] border border-white/5 hover:border-violet-main/40 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-15px_rgba(124,58,237,0.2)] overflow-hidden"
+              className="md:col-span-2 group relative p-7 rounded-[16px] bg-[#111118] border border-white/5 hover:border-violet-main/40 transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
             >
+              {/* Soft Halo Effect */}
+              <div className="absolute -inset-2 rounded-[16px] bg-violet-600/10 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500 pointer-events-none" />
+              
               {/* Subtle internal gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
@@ -123,8 +126,11 @@ export default function HiddenCosts() {
             <motion.div
               key={index + 3}
               variants={itemVariants}
-              className={`md:col-span-2 ${index === 0 ? 'md:col-start-2' : ''} group relative p-7 rounded-[16px] bg-[#111118] border border-white/5 hover:border-violet-main/40 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-15px_rgba(124,58,237,0.2)] overflow-hidden`}
+              className={`md:col-span-2 ${index === 0 ? 'md:col-start-2' : ''} group relative p-7 rounded-[16px] bg-[#111118] border border-white/5 hover:border-violet-main/40 transition-all duration-300 hover:-translate-y-1.5 overflow-hidden`}
             >
+              {/* Soft Halo Effect */}
+              <div className="absolute -inset-2 rounded-[16px] bg-violet-600/10 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500 pointer-events-none" />
+              
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative z-10">

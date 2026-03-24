@@ -2,6 +2,8 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import ProblemSection from './components/ProblemSection';
 import HiddenCosts from './components/HiddenCosts';
+import SolutionSection from './components/SolutionSection';
+import HowItWorks from './components/HowItWorks';
 
 export default function App() {
   return (
@@ -11,6 +13,8 @@ export default function App() {
         <Hero />
         <ProblemSection />
         <HiddenCosts />
+        <SolutionSection />
+        <HowItWorks />
       </main>
       
       {/* Subtle noise texture overlay */}

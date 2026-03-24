@@ -79,18 +79,23 @@ export default function ProblemSection() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group p-8 rounded-[14px] bg-surface border border-border-subtle hover:border-violet-main/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(124,58,237,0.15)]"
+              className="group relative p-8 rounded-[14px] bg-surface border border-border-subtle hover:border-violet-main/30 transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="relative w-12 h-12 rounded-xl bg-violet-main/10 flex items-center justify-center mb-6 border border-violet-main/20 group-hover:bg-violet-main/20 transition-colors">
-                {card.icon}
-                {card.secondaryIcon}
+              {/* Soft Halo Effect */}
+              <div className="absolute -inset-px rounded-[14px] bg-gradient-to-br from-violet-600/20 to-transparent opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 pointer-events-none" />
+              
+              <div className="relative z-10">
+                <div className="relative w-12 h-12 rounded-xl bg-violet-main/10 flex items-center justify-center mb-6 border border-violet-main/20 group-hover:bg-violet-main/20 transition-colors">
+                  {card.icon}
+                  {card.secondaryIcon}
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-text-primary group-hover:text-violet-alt transition-colors">
+                  {card.title}
+                </h3>
+                <p className="text-text-secondary leading-relaxed">
+                  {card.description}
+                </p>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-text-primary group-hover:text-violet-alt transition-colors">
-                {card.title}
-              </h3>
-              <p className="text-text-secondary leading-relaxed">
-                {card.description}
-              </p>
             </motion.div>
           ))}
         </motion.div>
