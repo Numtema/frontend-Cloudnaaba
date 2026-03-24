@@ -1,86 +1,136 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
-import { Cloud, Menu, X } from 'lucide-react';
+import { motion, AnimatePresence, useScroll } from 'motion/react';
+import { Menu, X, ChevronRight } from 'lucide-react';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [logoError, setLogoError] = useState(false);
   const { scrollY } = useScroll();
   
   useEffect(() => {
-    return scrollY.onChange((latest) => {
-      setIsScrolled(latest > 50);
-    });
+    const updateScroll = (latest: number) => setIsScrolled(latest > 20);
+    return scrollY.onChange(updateScroll);
   }, [scrollY]);
+
+  const navLinks = [
+    { name: 'Accueil', href: '#' },
+    { name: 'Marketplace', href: '#' },
+    { name: 'Hybride', href: '#', badge: 'NEW' },
+    { name: 'Tarifs', href: '#' },
+    { name: 'Sécurité', href: '#' },
+    { name: 'Contact', href: '#' },
+  ];
 
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-[76px] flex items-center ${
-        isScrolled 
-          ? 'bg-black/60 backdrop-blur-md border-b border-white/10' 
-          : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 h-[76px] flex items-center ${
+        isScrolled ? 'glass-header' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto max-w-[1240px] px-6 flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center gap-3">
-          <div className="relative w-12 h-12 bg-violet-600 rounded-full flex items-center justify-center border-2 border-violet-400/50 overflow-hidden shadow-[0_0_20px_rgba(124,58,237,0.4)] group">
-            <img 
-              src="/logo.png" 
-              alt="CloudNaaba Logo" 
-              className="w-full h-full object-contain p-1.5 relative z-10"
-              referrerPolicy="no-referrer"
-            />
-            {/* Fallback background if image is missing or loading */}
-            <div className="absolute inset-0 bg-gradient-to-br from-violet-600 to-violet-900 opacity-50 group-hover:opacity-80 transition-opacity" />
+        {/* Logo Block */}
+        <div className="flex items-center gap-3 shrink-0">
+          <div className="relative w-11 h-11 bg-violet-main rounded-full flex items-center justify-center border-2 border-violet-alt/40 overflow-hidden shadow-[0_0_15px_rgba(124,58,237,0.3)]">
+            {!logoError ? (
+              <img 
+                src="/logo.png" 
+                alt="CloudNaaba" 
+                className="w-full h-full object-contain p-1.5 relative z-10"
+                onError={() => setLogoError(true)}
+                referrerPolicy="no-referrer"
+              />
+            ) : (
+              <div className="text-white font-bold text-lg">CN</div>
+            )}
+            <div className="absolute inset-0 bg-gradient-to-br from-violet-main to-violet-900 opacity-40" />
           </div>
-          <span className="text-xl font-bold tracking-tight font-display">
-            Cloud<span className="text-violet-400">Naaba</span>
+          <span className="text-xl font-bold tracking-tight font-display text-text-primary">
+            Cloud<span className="text-violet-alt">Naaba</span>
           </span>
         </div>
 
-        {/* Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          <NavLink href="#">Accueil</NavLink>
-          <NavLink href="#">Marketplace</NavLink>
-          <NavLink href="#">Hybride</NavLink>
-          <div className="relative group">
-            <NavLink href="#">NEW</NavLink>
-            <span className="absolute -top-2 -right-4 bg-violet-600 text-[10px] px-1.5 py-0.5 rounded-full font-bold">
-              PRO
-            </span>
-          </div>
-          <NavLink href="#">Tarifs</NavLink>
-          <NavLink href="#">Sécurité</NavLink>
-          <NavLink href="#">Contact</NavLink>
+        {/* Navigation Center */}
+        <nav className="hidden lg:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <div key={link.name} className="flex items-center gap-2 group relative">
+              <a 
+                href={link.href} 
+                className="text-[15px] font-medium text-text-secondary hover:text-text-primary transition-colors duration-150"
+              >
+                {link.name}
+              </a>
+              {link.badge && (
+                <span className="px-1.5 py-0.5 rounded-full bg-violet-main/12 border border-violet-main/20 text-violet-alt text-[10px] font-bold">
+                  {link.badge}
+                </span>
+              )}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-violet-main transition-all duration-200 group-hover:w-full opacity-0 group-hover:opacity-100" />
+            </div>
+          ))}
         </nav>
 
-        {/* Actions */}
-        <div className="flex items-center gap-4">
-          <button className="hidden sm:block text-sm font-medium text-gray-300 hover:text-white transition-colors">
+        {/* Actions Right */}
+        <div className="flex items-center gap-6">
+          <button className="hidden sm:block text-[15px] font-medium text-text-secondary hover:text-text-primary transition-all relative group">
             Se connecter
+            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-text-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200" />
           </button>
-          <button className="bg-violet-600 hover:bg-violet-500 text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all violet-glow">
+          <button className="bg-violet-main hover:bg-violet-alt text-white px-5 py-2.5 rounded-[10px] text-[15px] font-bold transition-all violet-glow-btn">
             Commencer
           </button>
-          <button className="md:hidden text-white">
-            <Menu className="w-6 h-6" />
+          
+          {/* Burger Menu */}
+          <button 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden text-text-primary p-1"
+          >
+            {mobileMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
       </div>
-    </motion.header>
-  );
-}
 
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <a 
-      href={href} 
-      className="text-sm font-medium text-gray-400 hover:text-white transition-colors relative group"
-    >
-      {children}
-      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-violet-500 transition-all group-hover:w-full" />
-    </a>
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-0 top-[76px] bg-bg z-40 lg:hidden p-6 flex flex-col gap-6"
+          >
+            {navLinks.map((link) => (
+              <a 
+                key={link.name}
+                href={link.href}
+                className="text-2xl font-bold flex items-center justify-between border-b border-border-subtle pb-4"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="flex items-center gap-3">
+                  {link.name}
+                  {link.badge && (
+                    <span className="text-xs bg-violet-main/20 text-violet-alt px-2 py-0.5 rounded-full">
+                      {link.badge}
+                    </span>
+                  )}
+                </span>
+                <ChevronRight className="text-violet-main" />
+              </a>
+            ))}
+            <div className="mt-auto flex flex-col gap-4">
+              <button className="w-full py-4 rounded-xl border border-border-subtle font-bold">
+                Se connecter
+              </button>
+              <button className="w-full py-4 rounded-xl bg-violet-main font-bold">
+                Commencer maintenant
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }
