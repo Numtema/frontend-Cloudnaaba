@@ -77,6 +77,25 @@ export default function SecuritySection() {
           ))}
         </div>
 
+        {/* Security Partners */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="mt-32 flex flex-col items-center"
+        >
+          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-text-secondary/40 mb-10">
+            Intégrations de sécurité natives
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-12 opacity-30 grayscale hover:grayscale-0 transition-all duration-700">
+            <img src="https://cdn.simpleicons.org/cloudflare/FFFFFF" alt="Cloudflare" className="h-6 md:h-8 w-auto" referrerPolicy="no-referrer" />
+            <img src="https://cdn.simpleicons.org/snyk/FFFFFF" alt="Snyk" className="h-6 md:h-8 w-auto" referrerPolicy="no-referrer" />
+            <img src="https://cdn.simpleicons.org/crowdstrike/FFFFFF" alt="CrowdStrike" className="h-6 md:h-8 w-auto" referrerPolicy="no-referrer" />
+            <img src="https://cdn.simpleicons.org/paloaltonetworks/FFFFFF" alt="Palo Alto" className="h-6 md:h-8 w-auto" referrerPolicy="no-referrer" />
+          </div>
+        </motion.div>
+
         {/* Final Quote */}
         <motion.div 
           initial={{ opacity: 0 }}

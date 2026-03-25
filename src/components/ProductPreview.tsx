@@ -69,16 +69,18 @@ export default function ProductPreview() {
               className="absolute translate-x-[200px] md:translate-x-[350px] flex flex-col items-center gap-4 group"
             >
               <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/[0.02] border border-white/10 flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.05)] group-hover:border-accent-primary/30 transition-all">
-                <div className="grid grid-cols-2 gap-1 p-4">
+                <div className="grid grid-cols-3 gap-1 p-3">
                   <img src="https://cdn.simpleicons.org/amazonwebservices/232F3E" alt="AWS" className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
                   <img src="https://cdn.simpleicons.org/googlecloud/4285F4" alt="GCP" className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
                   <img src="https://cdn.simpleicons.org/microsoftazure/0078D4" alt="Azure" className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
                   <img src="https://cdn.simpleicons.org/digitalocean/0080FF" alt="DO" className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
+                  <img src="https://cdn.simpleicons.org/vercel/FFFFFF" alt="Vercel" className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
+                  <img src="https://cdn.simpleicons.org/hetzner/D50C2D" alt="Hetzner" className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
                 </div>
               </div>
               <div className="text-center">
                 <p className="text-white font-medium">Infrastructure</p>
-                <p className="text-text-secondary/60 text-xs">AWS / GCP / Bare Metal</p>
+                <p className="text-text-secondary/60 text-xs">AWS / GCP / Vercel / Bare Metal</p>
               </div>
             </motion.div>
 
@@ -87,10 +89,14 @@ export default function ProductPreview() {
               initial={{ y: -100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="absolute -translate-y-[180px] md:-translate-y-[220px] flex flex-col items-center gap-4"
+              className="absolute -translate-y-[180px] md:-translate-y-[220px] flex flex-col items-center gap-4 group"
             >
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-violet-500/5 border border-violet-500/20 flex items-center justify-center">
-                <Shield className="text-violet-400 w-6 h-6" />
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-violet-500/5 border border-violet-500/20 flex items-center justify-center shadow-[0_0_30px_rgba(139,92,246,0.1)] group-hover:border-violet-500/50 transition-all">
+                <div className="flex gap-2 p-2">
+                  <img src="https://cdn.simpleicons.org/cloudflare/F38020" alt="Cloudflare" className="w-5 h-5 opacity-40 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
+                  <img src="https://cdn.simpleicons.org/snyk/4C4A73" alt="Snyk" className="w-5 h-5 opacity-40 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
+                  <img src="https://cdn.simpleicons.org/crowdstrike/FF0000" alt="CrowdStrike" className="w-5 h-5 opacity-40 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
+                </div>
               </div>
               <p className="text-violet-400/80 text-xs font-bold uppercase tracking-widest">Couche de Sécurité</p>
             </motion.div>

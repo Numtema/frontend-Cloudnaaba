@@ -7,6 +7,7 @@ const technologies = [
   { name: "Go", slug: "go", color: "00ADD8" },
   { name: "Rust", slug: "rust", color: "FFFFFF" },
   { name: "Next.js", slug: "nextdotjs", color: "FFFFFF" },
+  { name: "Vercel", slug: "vercel", color: "FFFFFF" },
   { name: "React", slug: "react", color: "61DAFB" },
   { name: "PostgreSQL", slug: "postgresql", color: "4169E1" },
   { name: "Redis", slug: "redis", color: "DC382D" }

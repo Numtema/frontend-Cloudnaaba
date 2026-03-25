@@ -2,12 +2,15 @@ import React from 'react';
 import { motion } from 'motion/react';
 
 const logos = [
-  { name: 'AWS', url: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg' },
-  { name: 'Google Cloud', url: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_Logo.svg' },
-  { name: 'Azure', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg' },
-  { name: 'DigitalOcean', url: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/DigitalOcean_logo.svg' },
-  { name: 'Hetzner', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c8/Hetzner_Online_Logo.svg' },
-  { name: 'OVHcloud', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e3/OVH_logo.svg' }
+  { name: 'AWS', url: 'https://cdn.simpleicons.org/amazonwebservices/FFFFFF' },
+  { name: 'Google Cloud', url: 'https://cdn.simpleicons.org/googlecloud/FFFFFF' },
+  { name: 'Azure', url: 'https://cdn.simpleicons.org/microsoftazure/FFFFFF' },
+  { name: 'DigitalOcean', url: 'https://cdn.simpleicons.org/digitalocean/FFFFFF' },
+  { name: 'Vercel', url: 'https://cdn.simpleicons.org/vercel/FFFFFF' },
+  { name: 'Hetzner', url: 'https://cdn.simpleicons.org/hetzner/FFFFFF' },
+  { name: 'OVHcloud', url: 'https://cdn.simpleicons.org/ovh/FFFFFF' },
+  { name: 'Cloudflare', url: 'https://cdn.simpleicons.org/cloudflare/FFFFFF' },
+  { name: 'Snyk', url: 'https://cdn.simpleicons.org/snyk/FFFFFF' }
 ];
 
 export default function LogoWall() {

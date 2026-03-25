@@ -1,20 +1,33 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# CloudNaaba - Plateforme d'exploitation applicative
 
-# Run and deploy your AI Studio app
+Ce projet est une plateforme moderne pour le dÃ©ploiement et l'exploitation d'applications, conÃ§ue pour les PME et les organisations exigeantes.
 
-This contains everything you need to run your app locally.
+## DÃ©ploiement sur Vercel
 
-View your app in AI Studio: https://ai.studio/apps/38d316aa-ff51-4132-94bf-bac7c70edac4
+Ce projet est configurÃ© pour Ãªtre dÃ©ployÃ© sur Vercel en un clic.
 
-## Run Locally
+### PrÃ©requis
 
-**Prerequisites:**  Node.js
+- Un compte [Vercel](https://vercel.com).
+- Le projet doit Ãªtre sur un dÃ©pÃ´t Git (GitHub, GitLab, Bitbucket).
 
+### Ãtapes de dÃ©ploiement
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1. Importez le dÃ©pÃ´t sur votre tableau de bord Vercel.
+2. Vercel dÃ©tectera automatiquement la configuration **Vite**.
+3. Ajoutez vos variables d'environnement si nÃ©cessaire (ex: `GEMINI_API_KEY`).
+4. Cliquez sur **Deploy**.
+
+Le fichier `vercel.json` inclus gÃ¨re automatiquement le routage SPA pour que votre application fonctionne parfaitement.
+
+## Technologies utilisÃ©es
+
+- **React 19**
+- **Vite 6**
+- **Tailwind CSS 4**
+- **Motion** (pour les animations)
+- **Lucide React** (pour les icÃ´nes)
+
+## Licence
+
+Tous droits rÃ©servÃ©s Â© CloudNaaba.
