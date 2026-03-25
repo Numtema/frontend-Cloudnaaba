@@ -10,8 +10,8 @@ export default function ProductPreview() {
 
       <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">
-            L'exploitation <span className="text-violet-400">visuelle & maîtrisée.</span>
+          <h2 className="text-3xl md:text-5xl font-bold font-display mb-6 text-gradient">
+            L'exploitation visuelle & maîtrisée.
           </h2>
           <p className="text-text-secondary text-lg max-w-[700px] mx-auto">
             Une interface qui transforme la complexité de l'infrastructure en un flux logique et sécurisé.

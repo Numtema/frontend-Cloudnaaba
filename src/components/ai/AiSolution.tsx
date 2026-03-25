@@ -21,8 +21,8 @@ export default function AiSolution() {
                   La solution CloudNaaba IA
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 text-text-primary tracking-tight">
-                Votre IA, <span className="text-accent-primary">vos données,</span> <br />
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 text-gradient tracking-tight">
+                Votre IA, vos données, <br />
                 votre infrastructure.
               </h2>
               <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10 max-w-[640px]">

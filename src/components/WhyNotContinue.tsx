@@ -30,8 +30,8 @@ export default function WhyNotContinue() {
           transition={{ duration: 0.6 }}
           className="text-center mb-24"
         >
-          <h2 className="text-3xl md:text-5xl font-bold font-display max-w-[900px] mx-auto leading-tight">
-            Ce qui <span className="text-white/40 italic">“fonctionne à peu près”</span> devient un problème dès que votre projet compte vraiment.
+          <h2 className="text-3xl md:text-5xl font-bold font-display max-w-[900px] mx-auto leading-tight text-gradient">
+            Ce qui “fonctionne à peu près” devient un problème dès que votre projet compte vraiment.
           </h2>
         </motion.div>
 

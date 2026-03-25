@@ -18,9 +18,10 @@ import Pricing from './components/Pricing';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 import AiMarketplace from './pages/AiMarketplace';
+import HybridInfra from './pages/HybridInfra';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'ai'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'ai' | 'hybrid'>('home');
 
   return (
     <div className="min-h-screen text-text-primary selection:bg-accent-primary/30">
@@ -32,7 +33,11 @@ export default function App() {
 
       {currentPage === 'home' ? (
         <>
-          <Header onMarketplaceClick={() => setCurrentPage('ai')} onLogoClick={() => setCurrentPage('home')} />
+          <Header 
+            onMarketplaceClick={() => setCurrentPage('ai')} 
+            onLogoClick={() => setCurrentPage('home')} 
+            onHybridClick={() => setCurrentPage('hybrid')}
+          />
           <main>
             <Hero />
             <LogoWall />
@@ -53,8 +58,18 @@ export default function App() {
           </main>
           <Footer />
         </>
+      ) : currentPage === 'ai' ? (
+        <AiMarketplace 
+          onLogoClick={() => setCurrentPage('home')} 
+          onMarketplaceClick={() => setCurrentPage('ai')}
+          onHybridClick={() => setCurrentPage('hybrid')}
+        />
       ) : (
-        <AiMarketplace onLogoClick={() => setCurrentPage('home')} />
+        <HybridInfra 
+          onLogoClick={() => setCurrentPage('home')} 
+          onMarketplaceClick={() => setCurrentPage('ai')}
+          onHybridClick={() => setCurrentPage('hybrid')}
+        />
       )}
     </div>
   );

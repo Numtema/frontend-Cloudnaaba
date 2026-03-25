@@ -122,8 +122,8 @@ export default function FAQ() {
             <HelpCircle className="w-4 h-4" />
             <span>FAQ</span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 tracking-tight">
-            Questions <span className="text-accent-primary">fréquentes.</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 tracking-tight text-gradient">
+            Questions fréquentes.
           </h2>
           <p className="text-text-secondary text-lg md:text-xl max-w-[600px] mx-auto leading-relaxed">
             Les points qui reviennent le plus souvent avant de démarrer avec CloudNaaba.

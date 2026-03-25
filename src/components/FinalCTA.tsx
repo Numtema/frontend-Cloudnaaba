@@ -24,8 +24,8 @@ export default function FinalCTA() {
             />
 
             <div className="relative z-10">
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] mb-10 tracking-tight">
-                Donnez à votre projet une base <span className="text-accent-primary italic">plus sérieuse.</span>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] mb-10 tracking-tight text-gradient">
+                Donnez à votre projet une base sérieuse.
               </h2>
               <p className="text-text-secondary text-xl md:text-2xl max-w-[750px] mx-auto mb-16 leading-relaxed font-medium">
                 Vous n’avez pas besoin de complexifier votre exploitation pour la rendre professionnelle. CloudNaaba s'occupe de la structure, vous vous occupez du produit.

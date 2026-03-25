@@ -49,8 +49,8 @@ export default function SecuritySection() {
               Sécurité & Souveraineté
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold font-display max-w-[1000px] leading-[1.1] tracking-tight mx-auto lg:mx-0">
-            Ce qui est critique pour votre activité <span className="text-accent-primary">mérite un cadre sérieux.</span>
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold font-display max-w-[1000px] leading-[1.1] tracking-tight mx-auto lg:mx-0 text-gradient">
+            Ce qui est critique pour votre activité mérite un cadre sérieux.
           </h2>
         </motion.div>
 

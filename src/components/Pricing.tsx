@@ -56,8 +56,8 @@ export default function Pricing() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 tracking-tight">
-            Une offre adaptée à votre <span className="text-accent-primary">niveau de besoin.</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 tracking-tight text-gradient">
+            Une offre adaptée à votre niveau de besoin.
           </h2>
           <p className="text-text-secondary text-lg md:text-xl max-w-[700px] mx-auto leading-relaxed">
             CloudNaaba s’adapte à la maturité de votre projet, du test à l’exploitation critique.

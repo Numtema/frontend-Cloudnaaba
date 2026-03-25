@@ -42,9 +42,9 @@ export default function AiProblem() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] tracking-tight mb-12 text-text-primary"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] tracking-tight mb-12 text-gradient"
           >
-            L’IA est utile. Mais dès qu’elle touche à vos vraies données, <span className="text-accent-primary">la question change.</span>
+            L’IA est utile. Mais dès qu’elle touche à vos vraies données, la question change.
           </motion.h2>
           
           <motion.div

@@ -42,10 +42,10 @@ export default function AiSecurity() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] tracking-tight text-gradient"
           >
             Quand l’IA touche à vos données, <br />
-            <span className="text-accent-primary">le cadre d’exécution devient critique.</span>
+            le cadre d’exécution devient critique.
           </motion.h2>
         </div>
 

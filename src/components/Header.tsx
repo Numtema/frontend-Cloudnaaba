@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll } from 'motion/react';
 import { Menu, X, ChevronRight } from 'lucide-react';
 
-export default function Header({ onMarketplaceClick, onLogoClick }: { onMarketplaceClick?: () => void; onLogoClick?: () => void }) {
+export default function Header({ onMarketplaceClick, onLogoClick, onHybridClick }: { onMarketplaceClick?: () => void; onLogoClick?: () => void; onHybridClick?: () => void }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
@@ -15,7 +15,7 @@ export default function Header({ onMarketplaceClick, onLogoClick }: { onMarketpl
   const navLinks = [
     { name: 'Accueil', href: '#', onClick: onLogoClick },
     { name: 'Marketplace', href: '#', onClick: onMarketplaceClick },
-    { name: 'Hybride', href: '#hybrid', badge: 'NEW' },
+    { name: 'Hybride', href: '#hybrid', onClick: onHybridClick, badge: 'NEW' },
     { name: 'Tarifs', href: '#pricing' },
     { name: 'Sécurité', href: '#security' },
     { name: 'Contact', href: '#contact' },

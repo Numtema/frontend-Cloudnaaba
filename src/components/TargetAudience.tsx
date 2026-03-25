@@ -35,8 +35,8 @@ export default function TargetAudience() {
           transition={{ duration: 0.6 }}
           className="text-center mb-24"
         >
-          <h2 className="text-3xl md:text-5xl font-bold font-display mb-8 max-w-[900px] mx-auto leading-tight">
-            Pensé pour les entreprises qui ont des projets sérieux, <span className="text-violet-400">sans vouloir gérer une usine technique.</span>
+          <h2 className="text-3xl md:text-5xl font-bold font-display mb-8 max-w-[900px] mx-auto leading-tight text-gradient">
+            Pensé pour les entreprises qui ont des projets sérieux, sans vouloir gérer une usine technique.
           </h2>
           <p className="text-text-secondary text-lg md:text-xl max-w-[750px] mx-auto leading-relaxed">
             CloudNaaba s’adresse aux structures qui veulent exploiter leurs applications correctement, sans complexifier leur organisation.

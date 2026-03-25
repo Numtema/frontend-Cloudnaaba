@@ -76,9 +76,9 @@ export default function HiddenCosts() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="text-center mb-24"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 max-w-[1000px] mx-auto tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 max-w-[1000px] mx-auto tracking-tight text-gradient">
             Quand l’infrastructure n’est pas cadrée, <br className="hidden md:block" />
-            le coût ne se voit pas tout de suite. <span className="text-accent-primary">Mais il existe.</span>
+            le coût ne se voit pas tout de suite. Mais il existe.
           </h2>
           <p className="text-text-secondary text-lg md:text-xl max-w-[800px] mx-auto leading-relaxed">
             Vous ne le payez pas en facture directe. <br className="hidden md:block" />

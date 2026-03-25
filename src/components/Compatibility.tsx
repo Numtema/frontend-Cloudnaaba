@@ -32,8 +32,8 @@ export default function Compatibility() {
           transition={{ duration: 0.6 }}
           className="text-center mb-24"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 tracking-tight">
-            Vos équipes gardent <span className="text-accent-primary">leurs habitudes.</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 tracking-tight text-gradient">
+            Vos équipes gardent leurs habitudes.
           </h2>
           <p className="text-text-secondary text-lg md:text-xl max-w-[700px] mx-auto leading-relaxed">
             CloudNaaba s’adapte aux technologies courantes pour éviter d’imposer des changements inutiles à vos équipes.

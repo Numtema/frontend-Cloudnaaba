@@ -17,9 +17,9 @@ export default function AiFinalCTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] mb-10 tracking-tight text-text-primary">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] mb-10 tracking-tight text-gradient">
               Déployez votre première IA privée <br className="hidden md:block" />
-              <span className="text-accent-primary italic">sans construire l’infrastructure.</span>
+              sans construire l’infrastructure.
             </h2>
             
             <p className="text-xl md:text-2xl text-text-secondary leading-relaxed mb-16 max-w-[720px] mx-auto font-medium">

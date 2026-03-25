@@ -51,9 +51,9 @@ export default function AiHero() {
                 </span>
               </div>
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.05] tracking-tight mb-8">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.05] tracking-tight mb-8 text-gradient">
                 Votre IA privée, <br />
-                <span className="text-accent-primary">prête en quelques minutes.</span>
+                prête en quelques minutes.
               </h1>
 
               <p className="text-xl text-text-secondary leading-relaxed mb-8 max-w-[540px]">

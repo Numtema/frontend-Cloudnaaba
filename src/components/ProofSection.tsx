@@ -49,9 +49,9 @@ export default function ProofSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold font-display mb-10 leading-[1.1] tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold font-display mb-10 leading-[1.1] tracking-tight text-gradient"
           >
-            Une plateforme utile se juge sur ce qu’elle <span className="text-accent-primary">simplifie</span> et sur ce qu’elle <span className="text-accent-primary">sécurise.</span>
+            Une plateforme utile se juge sur ce qu’elle simplifie et sur ce qu’elle sécurise.
           </motion.h2>
           <motion.div 
             initial={{ opacity: 0, x: -20 }}

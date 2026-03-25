@@ -39,8 +39,8 @@ export default function SolutionSection() {
                   La solution CloudNaaba
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 text-text-primary tracking-tight">
-                CloudNaaba professionnalise l’exploitation de vos applications, <span className="text-accent-primary">sans vous imposer la complexité d’un cloud lourd.</span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 tracking-tight text-gradient">
+                CloudNaaba professionnalise l’exploitation de vos applications, sans vous imposer la complexité d’un cloud lourd.
               </h2>
               <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10 max-w-[640px]">
                 CloudNaaba n’est pas un simple hébergement. C’est une plateforme conçue pour structurer, sécuriser et simplifier l’exploitation de vos applications.

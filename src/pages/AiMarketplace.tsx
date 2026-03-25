@@ -16,7 +16,15 @@ import AiDifference from '../components/ai/AiDifference';
 import AiFAQ from '../components/ai/AiFAQ';
 import AiFinalCTA from '../components/ai/AiFinalCTA';
 
-export default function AiMarketplace({ onLogoClick }: { onLogoClick?: () => void }) {
+export default function AiMarketplace({ 
+  onLogoClick, 
+  onMarketplaceClick, 
+  onHybridClick 
+}: { 
+  onLogoClick?: () => void;
+  onMarketplaceClick?: () => void;
+  onHybridClick?: () => void;
+}) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -29,7 +37,11 @@ export default function AiMarketplace({ onLogoClick }: { onLogoClick?: () => voi
         <div className="bg-noise" />
       </div>
 
-      <Header onLogoClick={onLogoClick} />
+      <Header 
+        onLogoClick={onLogoClick} 
+        onMarketplaceClick={onMarketplaceClick}
+        onHybridClick={onHybridClick}
+      />
       <main>
         <AiHero />
         <AiProblem />

@@ -93,6 +93,14 @@ body {
   transition: all 140ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.text-gradient {
+  background: linear-gradient(to right, var(--color-text-primary) 30%, var(--color-accent-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 0 24px rgba(124, 58, 237, 0.4);

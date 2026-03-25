@@ -67,12 +67,10 @@ export default function Hero() {
             {/* Headline */}
             <motion.h1 
               variants={itemVariants}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] tracking-tight mb-8"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] tracking-tight mb-8 text-gradient"
             >
               Déployez vos applications <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-text-primary via-text-primary to-accent-primary">
-                sans gérer l’infrastructure.
-              </span>
+              sans gérer l’infrastructure.
             </motion.h1>
 
             {/* Subheadline */}

@@ -39,8 +39,8 @@ export default function HowItWorks() {
     <section id="hybrid" className="py-32 bg-bg-primary relative overflow-hidden scroll-mt-24">
       <div className="container mx-auto max-w-[1240px] px-6 relative z-10">
         <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 tracking-tight">
-            Une mise en route <span className="text-accent-primary">maîtrisée.</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 tracking-tight text-gradient">
+            Une mise en route maîtrisée.
           </h2>
           <p className="text-text-secondary text-lg md:text-xl max-w-[700px] mx-auto leading-relaxed">
             Passez du code à l’exploitation en trois étapes claires, sans friction technique.

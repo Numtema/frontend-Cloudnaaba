@@ -65,7 +65,7 @@ export default function ProblemSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-24 flex flex-col items-center"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display max-w-[820px] mb-8 leading-[1.1] tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display max-w-[820px] mb-8 leading-[1.1] tracking-tight text-gradient">
             Votre projet numérique mérite mieux qu’un déploiement fragile.
           </h2>
           <p className="text-text-secondary text-lg md:text-xl max-w-[720px] leading-relaxed">

@@ -47,8 +47,8 @@ export default function Features() {
           transition={{ duration: 0.6 }}
           className="text-center mb-24"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 tracking-tight">
-            L’essentiel pour exploiter vos applications <span className="text-accent-primary">proprement, dès le départ.</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 tracking-tight text-gradient">
+            L’essentiel pour exploiter vos applications proprement, dès le départ.
           </h2>
           <p className="text-text-secondary text-lg md:text-xl max-w-[800px] mx-auto leading-relaxed">
             CloudNaaba intègre les éléments critiques d’exploitation pour éviter les oublis, les manipulations risquées et les configurations fragiles.

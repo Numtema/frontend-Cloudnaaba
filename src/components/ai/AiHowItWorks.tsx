@@ -143,10 +143,10 @@ export default function AiHowItWorks() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] tracking-tight mb-8"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] tracking-tight mb-8 text-gradient"
           >
             De l’idée à une IA exploitable, <br />
-            <span className="text-accent-primary">en quelques étapes simples.</span>
+            en quelques étapes simples.
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
