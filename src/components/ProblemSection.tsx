@@ -39,29 +39,36 @@ export default function ProblemSection() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: "easeOut" }
+      transition: { duration: 0.42, ease: [0.22, 1, 0.36, 1] }
     }
   };
 
   return (
-    <section className="py-24 relative overflow-hidden">
-      <div className="container mx-auto max-w-[1240px] px-6">
+    <section className="py-32 relative overflow-hidden">
+      {/* Vertical Separator Lines */}
+      <div className="absolute inset-0 flex justify-around pointer-events-none opacity-[0.03]">
+        <div className="w-px h-full bg-white" />
+        <div className="w-px h-full bg-white" />
+        <div className="w-px h-full bg-white" />
+      </div>
+
+      <div className="container mx-auto max-w-[1240px] px-6 relative z-10">
         {/* Header Section */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 flex flex-col items-center"
+          className="text-center mb-24 flex flex-col items-center"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display max-w-[720px] mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display max-w-[820px] mb-8 leading-[1.1] tracking-tight">
             Votre projet numérique mérite mieux qu’un déploiement fragile.
           </h2>
-          <p className="text-text-secondary text-lg max-w-[680px] leading-relaxed">
+          <p className="text-text-secondary text-lg md:text-xl max-w-[720px] leading-relaxed">
             Beaucoup d’entreprises investissent dans un site, une application ou un outil métier. 
             Mais une fois en ligne, la même réalité revient : l’exploitation repose sur des bases fragiles.
           </p>
@@ -73,26 +80,39 @@ export default function ProblemSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24"
         >
           {cards.map((card, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group relative p-8 rounded-[14px] bg-surface border border-border-subtle hover:border-violet-main/30 transition-all duration-300 hover:-translate-y-1"
+              className="group relative p-10 premium-card hover:bg-red-500/[0.02] overflow-hidden"
             >
-              {/* Soft Halo Effect */}
-              <div className="absolute -inset-px rounded-[14px] bg-gradient-to-br from-violet-600/20 to-transparent opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 pointer-events-none" />
+              {/* Flicker Glow Effect */}
+              <motion.div 
+                className="absolute -inset-px rounded-[18px] bg-red-500/10 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500 pointer-events-none"
+                animate={{
+                  opacity: [0, 0.1, 0.05, 0.1, 0],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
               
+              {/* Micro Noise Overlay */}
+              <div className="absolute inset-0 opacity-[0.02] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none" />
+
               <div className="relative z-10">
-                <div className="relative w-12 h-12 rounded-xl bg-violet-main/10 flex items-center justify-center mb-6 border border-violet-main/20 group-hover:bg-violet-main/20 transition-colors">
+                <div className="relative w-14 h-14 rounded-2xl bg-accent-primary/10 flex items-center justify-center mb-8 border border-accent-primary/20 group-hover:bg-accent-primary/20 transition-colors">
                   {card.icon}
                   {card.secondaryIcon}
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-text-primary group-hover:text-violet-alt transition-colors">
+                <h3 className="text-2xl font-bold mb-4 text-text-primary group-hover:text-accent-primary transition-colors tracking-tight">
                   {card.title}
                 </h3>
-                <p className="text-text-secondary leading-relaxed">
+                <p className="text-text-secondary text-lg leading-relaxed">
                   {card.description}
                 </p>
               </div>
@@ -108,9 +128,14 @@ export default function ProblemSection() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center"
         >
-          <p className="text-xl md:text-2xl font-medium text-text-primary max-w-[800px] mx-auto leading-relaxed">
+          <div className="inline-block p-1 rounded-full bg-accent-soft border border-accent-primary/10 mb-8">
+            <div className="px-4 py-1 rounded-full bg-bg-primary text-xs font-bold uppercase tracking-widest text-accent-primary">
+              Le constat
+            </div>
+          </div>
+          <p className="text-2xl md:text-3xl font-medium text-text-primary max-w-[900px] mx-auto leading-tight tracking-tight">
             Le problème n’est pas seulement technique. <br className="hidden md:block" />
-            <span className="text-violet-alt">Un service important pour votre activité ne peut pas reposer sur du bricolage.</span>
+            <span className="text-accent-primary">Un service important pour votre activité ne peut pas reposer sur du bricolage.</span>
           </p>
         </motion.div>
       </div>

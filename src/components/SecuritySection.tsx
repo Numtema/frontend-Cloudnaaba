@@ -27,9 +27,9 @@ const trustItems = [
 
 export default function SecuritySection() {
   return (
-    <section className="py-32 relative overflow-hidden bg-[#050505]">
+    <section id="security" className="py-48 relative overflow-hidden bg-bg-primary">
       {/* Subtle background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-violet-900/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-accent-primary/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="container mx-auto max-w-[1240px] px-6 relative z-10">
         {/* Header */}
@@ -37,67 +37,76 @@ export default function SecuritySection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-24"
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-32"
         >
-          <h2 className="text-3xl md:text-5xl font-bold font-display max-w-[800px] leading-tight">
-            Ce qui est critique pour votre activité <span className="text-violet-400">mérite un cadre sérieux.</span>
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent-soft border border-accent-primary/20 mb-8">
+            <span className="text-[11px] font-bold uppercase tracking-widest text-accent-primary">
+              Sécurité & Souveraineté
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold font-display max-w-[1000px] leading-[1.1] tracking-tight">
+            Ce qui est critique pour votre activité <span className="text-accent-primary">mérite un cadre sérieux.</span>
           </h2>
         </motion.div>
 
         {/* Split Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 lg:gap-32 items-start">
           
           {/* Left - Editorial Text */}
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-6 space-y-8"
+            transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-6 space-y-12"
           >
-            <div className="space-y-6">
-              <p className="text-2xl md:text-3xl font-medium text-white/90 leading-snug">
-                Quand une entreprise gère des données importantes, la question n’est pas seulement : <span className="text-white">où héberger ?</span>
+            <div className="space-y-8">
+              <p className="text-3xl md:text-4xl font-medium text-text-primary leading-tight tracking-tight">
+                Quand une entreprise gère des données importantes, la question n’est pas seulement : <span className="text-accent-primary">où héberger ?</span>
               </p>
               <p className="text-xl md:text-2xl text-text-secondary leading-relaxed">
                 La vraie question est : comment garantir un niveau de maîtrise, de continuité et de sécurité compatible avec les enjeux métier ?
               </p>
             </div>
             
-            <div className="pt-8 border-t border-white/10">
-              <p className="text-lg text-violet-400 font-medium">
+            <div className="pt-12 border-t border-border-subtle">
+              <p className="text-2xl text-accent-primary font-medium tracking-tight">
                 CloudNaaba a été conçu pour répondre à cette exigence.
               </p>
             </div>
 
-            <div className="hidden lg:block pt-12">
-              <p className="text-text-secondary/60 text-sm max-w-[400px] leading-relaxed italic">
-                "Pour une PME sérieuse comme pour une organisation sensible, la stabilité n’est pas un luxe. C’est une condition de confiance."
-              </p>
+            <div className="hidden lg:block pt-16">
+              <div className="p-8 rounded-2xl bg-bg-elevated/50 border border-border-subtle italic">
+                <p className="text-text-secondary text-lg leading-relaxed">
+                  "Pour une PME sérieuse comme pour une organisation sensible, la stabilité n’est pas un luxe. C’est une condition de confiance."
+                </p>
+              </div>
             </div>
           </motion.div>
 
           {/* Right - Trust Block */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-6 space-y-8">
             {trustItems.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 + (index * 0.1) }}
-                className="group p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-violet-500/20 hover:bg-white/[0.04] transition-all duration-300"
+                transition={{ duration: 0.8, delay: 0.4 + (index * 0.15), ease: [0.22, 1, 0.36, 1] }}
+                className="group p-8 premium-card overflow-hidden"
               >
-                <div className="flex gap-5">
-                  <div className="mt-1 w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center border border-violet-500/20 group-hover:bg-violet-500/20 transition-colors shrink-0">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="flex gap-8 relative z-10">
+                  <div className="mt-1 w-14 h-14 rounded-2xl bg-accent-primary/10 flex items-center justify-center border border-accent-primary/20 group-hover:bg-accent-primary/20 transition-colors shrink-0">
                     {item.icon}
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-text-primary mb-1 group-hover:text-violet-300 transition-colors">
+                    <h3 className="text-2xl font-bold text-text-primary mb-3 group-hover:text-accent-primary transition-colors tracking-tight">
                       {item.title}
                     </h3>
-                    <p className="text-text-secondary leading-relaxed">
+                    <p className="text-text-secondary leading-relaxed text-lg">
                       {item.description}
                     </p>
                   </div>
@@ -110,10 +119,10 @@ export default function SecuritySection() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="lg:hidden pt-8 text-center"
+              transition={{ duration: 1, delay: 0.8 }}
+              className="lg:hidden pt-12 text-center"
             >
-              <p className="text-text-secondary/60 text-sm italic leading-relaxed">
+              <p className="text-text-secondary/60 text-lg italic leading-relaxed">
                 "Pour une PME sérieuse comme pour une organisation sensible, la stabilité n’est pas un luxe. C’est une condition de confiance."
               </p>
             </motion.div>

@@ -19,7 +19,13 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white selection:bg-violet-500/30">
+    <div className="min-h-screen text-text-primary selection:bg-accent-primary/30">
+      {/* Global Background System */}
+      <div className="bg-layered">
+        <div className="bg-radial-glow" />
+        <div className="bg-noise" />
+      </div>
+
       <Header />
       <main>
         <Hero />
@@ -40,9 +46,6 @@ export default function App() {
         <FinalCTA />
       </main>
       <Footer />
-      
-      {/* Subtle noise texture overlay */}
-      <div className="fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
     </div>
   );
 }

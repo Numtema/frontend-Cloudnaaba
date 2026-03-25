@@ -43,28 +43,28 @@ export default function HiddenCosts() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+      transition: { duration: 0.42, ease: [0.22, 1, 0.36, 1] }
     }
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-[#050505]">
-      {/* Ambient pulse background glow */}
+    <section className="py-32 relative overflow-hidden bg-bg-primary">
+      {/* Animated background glow sweep */}
       <motion.div 
         animate={{ 
-          opacity: [0.1, 0.2, 0.1],
-          scale: [1, 1.1, 1]
+          x: ['-100%', '100%'],
+          opacity: [0, 0.1, 0]
         }}
         transition={{ 
-          duration: 12, 
+          duration: 10, 
           repeat: Infinity, 
-          ease: "easeInOut" 
+          ease: "linear" 
         }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-violet-600/10 blur-[150px] rounded-full pointer-events-none"
+        className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-accent-primary/20 to-transparent pointer-events-none skew-x-12"
       />
 
       <div className="container mx-auto max-w-[1240px] px-6 relative z-10">
@@ -74,13 +74,13 @@ export default function HiddenCosts() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-center mb-20"
+          className="text-center mb-24"
         >
-          <h2 className="text-3xl md:text-5xl font-bold font-display leading-tight mb-8 max-w-[900px] mx-auto">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 max-w-[1000px] mx-auto tracking-tight">
             Quand l’infrastructure n’est pas cadrée, <br className="hidden md:block" />
-            le coût ne se voit pas tout de suite. <span className="text-violet-400">Mais il existe.</span>
+            le coût ne se voit pas tout de suite. <span className="text-accent-primary">Mais il existe.</span>
           </h2>
-          <p className="text-text-secondary text-lg md:text-xl max-w-[700px] mx-auto leading-relaxed">
+          <p className="text-text-secondary text-lg md:text-xl max-w-[800px] mx-auto leading-relaxed">
             Vous ne le payez pas en facture directe. <br className="hidden md:block" />
             Vous le payez en temps, en dépendance, en risque et en ralentissement.
           </p>
@@ -92,29 +92,28 @@ export default function HiddenCosts() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-20"
+          className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-24"
         >
           {/* Top Row: 3 cards */}
           {costs.slice(0, 3).map((cost, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="md:col-span-2 group relative p-7 rounded-[16px] bg-[#111118] border border-white/5 hover:border-violet-main/40 transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
+              className="md:col-span-2 group relative p-10 premium-card overflow-hidden"
             >
-              {/* Soft Halo Effect */}
-              <div className="absolute -inset-2 rounded-[16px] bg-violet-600/10 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500 pointer-events-none" />
-              
-              {/* Subtle internal gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Impact Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-accent-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-xl bg-violet-main/10 flex items-center justify-center mb-6 border border-violet-main/20 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-14 h-14 rounded-2xl bg-accent-primary/10 flex items-center justify-center mb-8 border border-accent-primary/20 group-hover:scale-110 transition-transform duration-300">
                   {cost.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-text-primary group-hover:text-violet-alt transition-colors">
+                <h3 className="text-2xl font-bold mb-4 text-text-primary group-hover:text-accent-primary transition-colors tracking-tight relative inline-block">
                   {cost.title}
+                  {/* Animated Underline */}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-primary transition-all duration-300 group-hover:w-full" />
                 </h3>
-                <p className="text-text-secondary leading-relaxed text-[15px]">
+                <p className="text-text-secondary leading-relaxed text-lg">
                   {cost.description}
                 </p>
               </div>
@@ -126,21 +125,19 @@ export default function HiddenCosts() {
             <motion.div
               key={index + 3}
               variants={itemVariants}
-              className={`md:col-span-2 ${index === 0 ? 'md:col-start-2' : ''} group relative p-7 rounded-[16px] bg-[#111118] border border-white/5 hover:border-violet-main/40 transition-all duration-300 hover:-translate-y-1.5 overflow-hidden`}
+              className={`md:col-span-2 ${index === 0 ? 'md:col-start-2' : ''} group relative p-10 premium-card overflow-hidden`}
             >
-              {/* Soft Halo Effect */}
-              <div className="absolute -inset-2 rounded-[16px] bg-violet-600/10 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500 pointer-events-none" />
-              
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-r from-accent-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-xl bg-violet-main/10 flex items-center justify-center mb-6 border border-violet-main/20 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-14 h-14 rounded-2xl bg-accent-primary/10 flex items-center justify-center mb-8 border border-accent-primary/20 group-hover:scale-110 transition-transform duration-300">
                   {cost.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-text-primary group-hover:text-violet-alt transition-colors">
+                <h3 className="text-2xl font-bold mb-4 text-text-primary group-hover:text-accent-primary transition-colors tracking-tight relative inline-block">
                   {cost.title}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-primary transition-all duration-300 group-hover:w-full" />
                 </h3>
-                <p className="text-text-secondary leading-relaxed text-[15px]">
+                <p className="text-text-secondary leading-relaxed text-lg">
                   {cost.description}
                 </p>
               </div>
@@ -154,11 +151,11 @@ export default function HiddenCosts() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center border-t border-white/5 pt-16"
+          className="text-center border-t border-white/5 pt-24"
         >
-          <p className="text-xl md:text-2xl font-medium text-text-primary max-w-[850px] mx-auto leading-relaxed">
+          <p className="text-2xl md:text-3xl font-medium text-text-primary max-w-[950px] mx-auto leading-tight tracking-tight">
             Le coût réel n’est pas visible immédiatement. <br className="hidden md:block" />
-            <span className="text-violet-alt">Mais il s’accumule, fragilise votre activité et freine votre croissance.</span>
+            <span className="text-accent-primary">Mais il s’accumule, fragilise votre activité et freine votre croissance.</span>
           </p>
         </motion.div>
       </div>

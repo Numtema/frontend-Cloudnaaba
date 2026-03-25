@@ -1,45 +1,55 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Plus, Minus, HelpCircle } from 'lucide-react';
+import { ChevronDown, HelpCircle } from 'lucide-react';
 
 interface FAQItemProps {
   question: string;
   answer: string;
   isOpen: boolean;
   onClick: () => void;
-  key?: string | number;
 }
 
 function FAQItem({ question, answer, isOpen, onClick }: FAQItemProps) {
   return (
-    <div className={`border-b border-white/5 transition-colors duration-300 ${isOpen ? 'bg-white/[0.02]' : ''}`}>
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className={`premium-card overflow-hidden transition-all duration-500 mb-4 ${
+        isOpen ? 'border-accent-primary/30 bg-accent-primary/[0.02]' : 'hover:border-white/10'
+      }`}
+    >
       <button
         onClick={onClick}
-        className="w-full py-6 px-4 flex items-center justify-between text-left group"
+        className="w-full p-8 text-left flex items-center justify-between group"
       >
-        <span className={`text-lg md:text-xl font-medium transition-colors duration-300 ${isOpen ? 'text-violet-400' : 'text-white/80 group-hover:text-white'}`}>
+        <span className={`text-xl font-bold transition-colors duration-300 ${
+          isOpen ? 'text-text-primary' : 'text-text-secondary group-hover:text-text-primary'
+        }`}>
           {question}
         </span>
-        <div className={`flex-shrink-0 ml-4 p-2 rounded-full transition-all duration-300 ${isOpen ? 'bg-violet-500/20 text-violet-400 rotate-180' : 'bg-white/5 text-white/40 group-hover:bg-white/10 group-hover:text-white'}`}>
-          {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+        <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-500 ${
+          isOpen ? 'bg-accent-primary text-white rotate-180' : 'bg-white/5 text-text-secondary group-hover:bg-white/10'
+        }`}>
+          <ChevronDown className="w-5 h-5" />
         </div>
       </button>
+      
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
+            animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
-            className="overflow-hidden"
+            transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
           >
-            <div className="px-4 pb-8 text-text-secondary leading-relaxed max-w-[800px]">
+            <div className="px-8 pb-8 text-lg text-text-secondary leading-relaxed border-t border-white/5 pt-6">
               {answer}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }
 
@@ -83,7 +93,7 @@ const highlights = [
 ];
 
 export default function FAQ() {
-  const [openId, setOpenId] = useState<string | null>(null);
+  const [openId, setOpenId] = useState<string | null>("hosting");
 
   const toggleId = (id: string) => {
     setOpenId(openId === id ? null : id);
@@ -98,7 +108,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq-section" className="py-32 bg-[#050505] relative overflow-hidden">
+    <section id="faq-section" className="py-48 bg-bg-primary relative overflow-hidden">
       <div className="container mx-auto max-w-[900px] px-6 relative z-10">
         
         {/* Header */}
@@ -106,27 +116,27 @@ export default function FAQ() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-24"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-bold uppercase tracking-widest mb-6">
-            <HelpCircle className="w-3 h-3" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-accent-primary text-xs font-bold uppercase tracking-[0.2em] mb-8">
+            <HelpCircle className="w-4 h-4" />
             <span>FAQ</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">
-            Questions <span className="text-violet-400">fréquentes</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 tracking-tight">
+            Questions <span className="text-accent-primary">fréquentes.</span>
           </h2>
-          <p className="text-text-secondary text-lg max-w-[600px] mx-auto">
+          <p className="text-text-secondary text-lg md:text-xl max-w-[600px] mx-auto leading-relaxed">
             Les points qui reviennent le plus souvent avant de démarrer avec CloudNaaba.
           </p>
         </motion.div>
 
         {/* Highlight Chips */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
           {highlights.map((chip) => (
             <button
               key={chip.id}
               onClick={() => scrollToAndOpen(chip.id)}
-              className="px-4 py-2 rounded-full bg-white/[0.03] border border-white/10 text-sm text-white/60 hover:text-white hover:border-violet-500/30 hover:bg-violet-500/5 transition-all duration-300"
+              className="px-6 py-2.5 rounded-full bg-white/[0.03] border border-border-subtle text-sm font-bold text-text-secondary hover:text-text-primary hover:border-accent-primary/30 hover:bg-accent-primary/5 transition-all duration-300 tracking-tight"
             >
               {chip.label}
             </button>
@@ -134,23 +144,18 @@ export default function FAQ() {
         </div>
 
         {/* Accordion List */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="border-t border-white/5 mb-20"
-        >
+        <div className="mb-24">
           {faqs.map((faq) => (
-            <FAQItem
-              key={faq.id}
-              question={faq.question}
-              answer={faq.answer}
-              isOpen={openId === faq.id}
-              onClick={() => toggleId(faq.id)}
-            />
+            <div key={faq.id}>
+              <FAQItem
+                question={faq.question}
+                answer={faq.answer}
+                isOpen={openId === faq.id}
+                onClick={() => toggleId(faq.id)}
+              />
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Final Reassurance */}
         <motion.div 
@@ -158,11 +163,11 @@ export default function FAQ() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="text-center p-10 rounded-3xl bg-gradient-to-b from-white/[0.02] to-transparent border border-white/5"
+          className="text-center p-12 rounded-[2rem] bg-gradient-to-b from-white/[0.02] to-transparent border border-border-subtle"
         >
-          <p className="text-text-secondary text-lg md:text-xl leading-relaxed italic">
+          <p className="text-text-secondary text-xl md:text-2xl leading-relaxed italic font-medium">
             "Vous n’avez pas besoin de tout anticiper dès le départ. <br className="hidden md:block" />
-            <span className="text-white">CloudNaaba est conçu pour vous accompagner dans la durée.</span>"
+            <span className="text-text-primary">CloudNaaba est conçu pour vous accompagner dans la durée.</span>"
           </p>
         </motion.div>
 

@@ -36,136 +36,193 @@ export default function HowItWorks() {
   const [activeStep, setActiveStep] = useState(1);
 
   return (
-    <section id="how-it-works" className="py-32 bg-[#050505] relative overflow-hidden">
-      <div className="container mx-auto max-w-[1100px] px-6 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">
-            De l'idée à la <span className="text-violet-400">production.</span>
+    <section id="how-it-works" className="py-32 bg-bg-primary relative overflow-hidden">
+      <div className="container mx-auto max-w-[1240px] px-6 relative z-10">
+        <div className="text-center mb-24">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8 tracking-tight">
+            Une mise en route <span className="text-accent-primary">maîtrisée.</span>
           </h2>
-          <p className="text-text-secondary text-lg max-w-[600px] mx-auto">
-            Trois étapes simples pour transformer votre code en un service stable et sécurisé.
+          <p className="text-text-secondary text-lg md:text-xl max-w-[700px] mx-auto leading-relaxed">
+            Passez du code à l’exploitation en trois étapes claires, sans friction technique.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left: Interactive Steps */}
-          <div className="space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          {/* Left: Stepper */}
+          <div className="lg:col-span-5 space-y-6 relative">
+            {/* Timeline Line Pro */}
+            <div className="absolute left-[39px] top-10 bottom-10 w-px bg-white/5 overflow-hidden">
+              <motion.div 
+                className="w-full h-full bg-gradient-to-b from-accent-primary via-accent-primary to-transparent"
+                initial={{ y: '-100%' }}
+                whileInView={{ y: '0%' }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
+              />
+            </div>
+
             {steps.map((step) => (
-              <button
+              <motion.div
                 key={step.id}
+                initial={{ opacity: 0, x: -20, rotate: 0.5 }}
+                whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: step.id * 0.1, duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
                 onClick={() => setActiveStep(step.id)}
-                className={`w-full text-left p-8 rounded-2xl border transition-all duration-500 flex gap-6 ${
+                className={`group relative p-8 rounded-2xl cursor-pointer transition-all duration-300 border ${
                   activeStep === step.id 
-                    ? 'bg-white/[0.04] border-violet-500/30 shadow-[0_0_30px_rgba(139,92,246,0.1)]' 
-                    : 'bg-transparent border-white/5 hover:border-white/10'
+                    ? 'bg-bg-elevated border-accent-primary/30 shadow-2xl' 
+                    : 'bg-transparent border-transparent hover:bg-white/5'
                 }`}
               >
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors duration-500 ${
-                  activeStep === step.id ? step.bg : 'bg-white/5'
-                }`}>
-                  <step.icon className={`w-6 h-6 transition-colors duration-500 ${
-                    activeStep === step.id ? step.color : 'text-white/20'
-                  }`} />
-                </div>
-                <div>
-                  <h3 className={`text-xl font-bold mb-2 transition-colors duration-500 ${
-                    activeStep === step.id ? 'text-white' : 'text-white/40'
+                <div className="flex items-start gap-6 relative z-10">
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300 border ${
+                    activeStep === step.id 
+                      ? 'bg-accent-primary text-white shadow-[0_0_20px_rgba(124,58,237,0.4)]' 
+                      : 'bg-bg-elevated text-text-secondary border-border-subtle group-hover:border-accent-primary/30'
                   }`}>
-                    {step.id}. {step.title}
-                  </h3>
-                  <p className={`text-sm leading-relaxed transition-colors duration-500 ${
-                    activeStep === step.id ? 'text-text-secondary' : 'text-text-secondary/30'
-                  }`}>
-                    {step.description}
-                  </p>
+                    <step.icon className="w-6 h-6" />
+                    {/* Glowing Dot Node */}
+                    {activeStep === step.id && (
+                      <motion.div 
+                        layoutId="activeDot"
+                        className="absolute -left-[31px] w-3 h-3 rounded-full bg-accent-primary shadow-[0_0_10px_rgba(124,58,237,0.8)]"
+                        animate={{ scale: [1, 1.5, 1] }}
+                        transition={{ duration: 2.5, repeat: Infinity }}
+                      />
+                    )}
+                  </div>
+                  <div>
+                    <h3 className={`text-2xl font-bold mb-3 transition-colors tracking-tight ${
+                      activeStep === step.id ? 'text-text-primary' : 'text-text-secondary'
+                    }`}>
+                      {step.title}
+                    </h3>
+                    <p className={`text-lg leading-relaxed transition-colors ${
+                      activeStep === step.id ? 'text-text-secondary' : 'text-text-secondary/60'
+                    }`}>
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
-              </button>
+              </motion.div>
             ))}
           </div>
 
           {/* Right: Visual Preview */}
-          <div className="relative aspect-square lg:aspect-auto lg:h-[500px] rounded-3xl bg-white/[0.02] border border-white/5 overflow-hidden flex items-center justify-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeStep}
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 1.1, y: -20 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="w-full h-full flex items-center justify-center p-12"
-              >
-                {activeStep === 1 && (
-                  <div className="relative w-full max-w-[300px] aspect-square flex items-center justify-center">
-                    <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-[60px]" />
-                    <div className="relative z-10 p-8 rounded-3xl bg-black border border-blue-500/30 shadow-2xl">
-                      <div className="flex items-center gap-4 mb-6">
-                        <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
-                          <GitBranch className="text-blue-400 w-6 h-6" />
+          <div className="lg:col-span-7 sticky top-32">
+            <motion.div
+              key={activeStep}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+              className="relative aspect-[16/10] rounded-3xl bg-bg-elevated border border-border-subtle shadow-2xl overflow-hidden group"
+            >
+              {/* Micro Grid Background */}
+              <div className="absolute inset-0 opacity-[0.03]" 
+                   style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '24px 24px' }} 
+              />
+              
+              <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/10 via-transparent to-transparent" />
+              
+              <div className="relative h-full p-10 flex items-center justify-center">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeStep}
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 1.1, y: -20 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="w-full h-full flex items-center justify-center"
+                  >
+                    {activeStep === 1 && (
+                      <div className="relative w-full max-w-[300px] aspect-square flex items-center justify-center">
+                        <div className="absolute inset-0 bg-accent-primary/20 rounded-full blur-[60px]" />
+                        <div className="relative z-10 p-8 rounded-3xl bg-black border border-accent-primary/30 shadow-2xl">
+                          <div className="flex items-center gap-4 mb-6">
+                            <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
+                              <GitBranch className="text-accent-primary w-6 h-6" />
+                            </div>
+                            <div className="h-2 w-24 bg-white/10 rounded" />
+                          </div>
+                          <div className="space-y-3">
+                            <div className="h-1.5 w-full bg-white/5 rounded" />
+                            <div className="h-1.5 w-4/5 bg-white/5 rounded" />
+                            <div className="h-1.5 w-2/3 bg-white/5 rounded" />
+                          </div>
+                          <div className="mt-8 flex justify-end">
+                            <div className="px-4 py-2 rounded-lg bg-accent-primary text-[10px] font-bold text-white">Connecté</div>
+                          </div>
                         </div>
-                        <div className="h-2 w-24 bg-white/10 rounded" />
                       </div>
-                      <div className="space-y-3">
-                        <div className="h-1.5 w-full bg-white/5 rounded" />
-                        <div className="h-1.5 w-4/5 bg-white/5 rounded" />
-                        <div className="h-1.5 w-2/3 bg-white/5 rounded" />
-                      </div>
-                      <div className="mt-8 flex justify-end">
-                        <div className="px-4 py-2 rounded-lg bg-blue-500 text-[10px] font-bold text-white">Connecté</div>
-                      </div>
-                    </div>
-                  </div>
-                )}
+                    )}
 
-                {activeStep === 2 && (
-                  <div className="relative w-full max-w-[300px] aspect-square flex items-center justify-center">
-                    <div className="absolute inset-0 bg-violet-500/20 rounded-full blur-[60px]" />
-                    <div className="relative z-10 p-8 rounded-3xl bg-black border border-violet-500/30 shadow-2xl w-full">
-                      <div className="flex items-center justify-between mb-8">
-                        <Shield className="text-violet-400 w-8 h-8" />
-                        <div className="text-[10px] font-mono text-violet-400/60 tracking-widest">SECURITY_ON</div>
+                    {activeStep === 2 && (
+                      <div className="relative w-full max-w-[300px] aspect-square flex items-center justify-center">
+                        <div className="absolute inset-0 bg-accent-primary/20 rounded-full blur-[60px]" />
+                        <div className="relative z-10 p-8 rounded-3xl bg-black border border-accent-primary/30 shadow-2xl w-full">
+                          <div className="flex items-center justify-between mb-8">
+                            <Shield className="text-accent-primary w-8 h-8" />
+                            <div className="text-[10px] font-mono text-accent-primary/60 tracking-widest">SECURITY_ON</div>
+                          </div>
+                          <div className="space-y-4">
+                            <div className="flex items-center justify-between">
+                              <div className="h-1.5 w-20 bg-white/10 rounded" />
+                              <div className="w-8 h-4 bg-accent-primary/40 rounded-full" />
+                            </div>
+                            <div className="flex items-center justify-between">
+                              <div className="h-1.5 w-24 bg-white/10 rounded" />
+                              <div className="w-8 h-4 bg-accent-primary rounded-full" />
+                            </div>
+                            <div className="flex items-center justify-between">
+                              <div className="h-1.5 w-16 bg-white/10 rounded" />
+                              <div className="w-8 h-4 bg-accent-primary rounded-full" />
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="space-y-4">
-                        <div className="flex items-center justify-between">
-                          <div className="h-1.5 w-20 bg-white/10 rounded" />
-                          <div className="w-8 h-4 bg-violet-500/40 rounded-full" />
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <div className="h-1.5 w-24 bg-white/10 rounded" />
-                          <div className="w-8 h-4 bg-violet-500 rounded-full" />
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <div className="h-1.5 w-16 bg-white/10 rounded" />
-                          <div className="w-8 h-4 bg-violet-500 rounded-full" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
+                    )}
 
-                {activeStep === 3 && (
-                  <div className="relative w-full max-w-[300px] aspect-square flex items-center justify-center">
-                    <div className="absolute inset-0 bg-amber-500/20 rounded-full blur-[60px]" />
-                    <div className="relative z-10 p-8 rounded-3xl bg-black border border-amber-500/30 shadow-2xl text-center">
-                      <div className="w-16 h-16 rounded-full bg-amber-500/20 flex items-center justify-center mx-auto mb-6">
-                        <CheckCircle2 className="text-amber-400 w-8 h-8" />
+                    {activeStep === 3 && (
+                      <div className="relative w-full max-w-[300px] aspect-square flex items-center justify-center">
+                        <div className="absolute inset-0 bg-accent-primary/20 rounded-full blur-[60px]" />
+                        <div className="relative z-10 p-8 rounded-3xl bg-black border border-accent-primary/30 shadow-2xl text-center">
+                          <div className="w-16 h-16 rounded-full bg-accent-primary/20 flex items-center justify-center mx-auto mb-6">
+                            <CheckCircle2 className="text-accent-primary w-8 h-8" />
+                          </div>
+                          <h4 className="text-white font-bold mb-2">Service Live</h4>
+                          <p className="text-accent-primary/60 text-[10px] font-mono mb-6">https://app.cloudnaaba.io</p>
+                          <div className="flex justify-center gap-2">
+                            {[1,2,3,4,5].map(i => (
+                              <motion.div 
+                                key={i}
+                                animate={{ height: [4, 12, 4] }}
+                                transition={{ duration: 1, repeat: Infinity, delay: i * 0.1 }}
+                                className="w-1 bg-accent-primary/40 rounded-full"
+                              />
+                            ))}
+                          </div>
+                        </div>
                       </div>
-                      <h4 className="text-white font-bold mb-2">Service Live</h4>
-                      <p className="text-amber-400/60 text-[10px] font-mono mb-6">https://app.cloudnaaba.io</p>
-                      <div className="flex justify-center gap-2">
-                        {[1,2,3,4,5].map(i => (
-                          <motion.div 
-                            key={i}
-                            animate={{ height: [4, 12, 4] }}
-                            transition={{ duration: 1, repeat: Infinity, delay: i * 0.1 }}
-                            className="w-1 bg-amber-400/40 rounded-full"
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </motion.div>
-            </AnimatePresence>
+                    )}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Final CTA hint */}
+              {activeStep === 3 && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="absolute bottom-8 left-1/2 -translate-x-1/2"
+                >
+                  <button className="btn-primary px-6 py-2 text-sm font-bold text-white flex items-center gap-2">
+                    Voir comment démarrer
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </motion.div>
+              )}
+            </motion.div>
           </div>
         </div>
       </div>
