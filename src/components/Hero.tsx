@@ -97,19 +97,9 @@ export default function Hero() {
               className="flex flex-wrap items-center gap-5 mb-10"
             >
               <div className="relative group">
-                {/* Button Glow Effect */}
-                <motion.div 
-                  animate={{
-                    opacity: [0.4, 0.7, 0.4],
-                    scale: [1, 1.05, 1],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  className="absolute -inset-1.5 bg-accent-primary/40 rounded-xl blur-xl opacity-75 group-hover:opacity-100 group-hover:-inset-2.5 transition-all duration-500" 
-                />
+                {/* Subtle & Controlled Glow Effect */}
+                <div className="absolute -inset-1 bg-accent-primary/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                <div className="absolute -inset-4 bg-accent-primary/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700" />
                 
                 <button className="relative btn-primary px-8 py-4 text-white font-bold flex items-center gap-2">
                   Commencer maintenant
