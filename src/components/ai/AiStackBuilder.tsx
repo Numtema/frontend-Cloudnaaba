@@ -3,10 +3,10 @@ import { motion } from 'motion/react';
 import { Cpu, Database, Layout, ArrowRight, CheckCircle2, Share2, Zap, MessageSquare } from 'lucide-react';
 
 const stackNodes = [
-  { id: 'n8n', label: 'n8n', icon: <Zap className="w-5 h-5" />, angle: 0 },
-  { id: 'flowise', label: 'Flowise', icon: <Share2 className="w-5 h-5" />, angle: 90 },
-  { id: 'db', label: 'Database', icon: <Database className="w-5 h-5" />, angle: 180 },
-  { id: 'next', label: 'Next.js', icon: <Layout className="w-5 h-5" />, angle: 270 }
+  { id: 'n8n', label: 'n8n', logo: 'https://cdn.simpleicons.org/n8n', angle: 0 },
+  { id: 'flowise', label: 'Flowise', logo: 'https://avatars.githubusercontent.com/u/124056254?s=200&v=4', angle: 90 },
+  { id: 'db', label: 'Database', logo: 'https://cdn.simpleicons.org/postgresql', angle: 180 },
+  { id: 'next', label: 'Next.js', logo: 'https://cdn.simpleicons.org/nextdotjs', angle: 270 }
 ];
 
 export default function AiStackBuilder() {
@@ -51,7 +51,12 @@ export default function AiStackBuilder() {
               className="w-40 h-40 rounded-[40px] bg-bg-elevated border-2 border-accent-primary/40 flex flex-col items-center justify-center relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/20 to-transparent" />
-              <Cpu className="w-12 h-12 text-accent-primary mb-2 relative z-10" />
+              <img 
+                src="https://ollama.com/public/ollama.png" 
+                alt="Ollama" 
+                className="w-16 h-16 object-contain mb-2 relative z-10 filter brightness-0 invert" 
+                referrerPolicy="no-referrer"
+              />
               <span className="text-sm font-black uppercase tracking-widest text-white relative z-10">Ollama</span>
             </motion.div>
           </div>
@@ -99,8 +104,13 @@ export default function AiStackBuilder() {
                   style={{ x, y }}
                 >
                   <div className="flex flex-col items-center group">
-                    <div className="w-16 h-16 rounded-2xl bg-bg-elevated border border-white/10 flex items-center justify-center shadow-xl group-hover:border-accent-primary/40 transition-colors">
-                      <div className="text-accent-primary group-hover:scale-110 transition-transform">{node.icon}</div>
+                    <div className="w-16 h-16 rounded-2xl bg-bg-elevated border border-white/10 flex items-center justify-center shadow-xl group-hover:border-accent-primary/40 transition-colors p-3">
+                      <img 
+                        src={node.logo} 
+                        alt={node.label} 
+                        className="w-full h-full object-contain filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300" 
+                        referrerPolicy="no-referrer"
+                      />
                     </div>
                     <div className="mt-3 text-center">
                       <div className="text-xs font-bold text-white uppercase tracking-widest">{node.label}</div>

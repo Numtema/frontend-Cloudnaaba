@@ -2,13 +2,14 @@ import React from 'react';
 import { motion } from 'motion/react';
 
 const technologies = [
-  { name: "Node.js", slug: "node-dot-js", color: "339933" },
+  { name: "Node.js", slug: "nodedotjs", color: "339933" },
   { name: "Python", slug: "python", color: "3776AB" },
-  { name: "PHP", slug: "php", color: "777BB4" },
   { name: "Go", slug: "go", color: "00ADD8" },
-  { name: "Ruby", slug: "ruby", color: "CC342D" },
-  { name: "Java", slug: "openjdk", color: "007396" },
-  { name: "Rust", slug: "rust", color: "FFFFFF" }
+  { name: "Rust", slug: "rust", color: "FFFFFF" },
+  { name: "Next.js", slug: "nextdotjs", color: "FFFFFF" },
+  { name: "React", slug: "react", color: "61DAFB" },
+  { name: "PostgreSQL", slug: "postgresql", color: "4169E1" },
+  { name: "Redis", slug: "redis", color: "DC382D" }
 ];
 
 export default function Compatibility() {

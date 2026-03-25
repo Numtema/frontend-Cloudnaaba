@@ -99,19 +99,25 @@ export default function AiHero() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/20 to-transparent" />
                   <img 
-                    src="https://ollama.com/public/ollama.png" 
-                    alt="Ollama" 
-                    className="w-12 h-12 object-contain mb-2 relative z-10 filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300" 
+                    src="https://cdn.phototourl.com/free/2026-03-25-7e6959d3-1a44-44f9-a676-6e8e2acf2388.png" 
+                    alt="CloudNaaba" 
+                    className="w-8 h-8 object-contain mb-1 relative z-10 filter brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity" 
                     referrerPolicy="no-referrer"
                   />
-                  <span className="text-[10px] font-black uppercase tracking-widest text-white relative z-10">Ollama</span>
-                  <span className="text-[8px] font-bold text-accent-primary/60 relative z-10">RUNTIME</span>
+                  <img 
+                    src="https://ollama.com/public/ollama.png" 
+                    alt="Ollama" 
+                    className="w-10 h-10 object-contain mb-1 relative z-10 filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300" 
+                    referrerPolicy="no-referrer"
+                  />
+                  <span className="text-[9px] font-black uppercase tracking-widest text-white relative z-10">Ollama</span>
+                  <span className="text-[7px] font-bold text-accent-primary/60 relative z-10">RUNTIME</span>
                 </motion.div>
               </div>
 
               {/* Orbiting Nodes */}
               <OrbitingNode 
-                icon={<Layers className="w-5 h-5" />} 
+                logo="https://cdn.simpleicons.org/meta" 
                 label="Model" 
                 sub="Llama 3" 
                 angle={-60} 
@@ -243,7 +249,7 @@ function TrustChip({ icon, text }: { icon: React.ReactNode; text: string }) {
   );
 }
 
-function OrbitingNode({ icon, label, sub, angle, distance, delay }: any) {
+function OrbitingNode({ icon, logo, label, sub, angle, distance, delay }: any) {
   const x = Math.cos(angle * Math.PI / 180) * distance;
   const y = Math.sin(angle * Math.PI / 180) * distance;
 
@@ -265,8 +271,17 @@ function OrbitingNode({ icon, label, sub, angle, distance, delay }: any) {
       className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
     >
       <div className="flex flex-col items-center">
-        <div className="w-14 h-14 rounded-2xl bg-bg-elevated border border-white/10 flex items-center justify-center shadow-xl group hover:border-accent-primary/40 transition-colors">
-          <div className="text-accent-primary group-hover:scale-110 transition-transform">{icon}</div>
+        <div className="w-14 h-14 rounded-2xl bg-bg-elevated border border-white/10 flex items-center justify-center shadow-xl group hover:border-accent-primary/40 transition-colors p-3">
+          {logo ? (
+            <img 
+              src={logo} 
+              alt={label} 
+              className="w-full h-full object-contain filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300" 
+              referrerPolicy="no-referrer"
+            />
+          ) : (
+            <div className="text-accent-primary group-hover:scale-110 transition-transform">{icon}</div>
+          )}
         </div>
         <div className="mt-2 text-center">
           <div className="text-[10px] font-bold text-white uppercase tracking-tighter">{label}</div>

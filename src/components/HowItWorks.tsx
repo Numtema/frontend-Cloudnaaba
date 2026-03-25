@@ -140,10 +140,12 @@ export default function HowItWorks() {
                         <div className="absolute inset-0 bg-accent-primary/20 rounded-full blur-[60px]" />
                         <div className="relative z-10 p-8 rounded-3xl bg-black border border-accent-primary/30 shadow-2xl">
                           <div className="flex items-center gap-4 mb-6">
-                            <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
-                              <GitBranch className="text-accent-primary w-6 h-6" />
+                            <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center p-2">
+                              <img src="https://cdn.simpleicons.org/github/FFFFFF" alt="GitHub" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
                             </div>
-                            <div className="h-2 w-24 bg-white/10 rounded" />
+                            <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center p-2">
+                              <img src="https://cdn.simpleicons.org/gitlab/FC6D26" alt="GitLab" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
+                            </div>
                           </div>
                           <div className="space-y-3">
                             <div className="h-1.5 w-full bg-white/5 rounded" />

@@ -108,12 +108,23 @@ export default function GlobeVisual() {
         value="Saine" 
         className="bottom-[30%] -right-[10%]" 
         delay={1.5}
+        extra={
+          <div className="mt-2 pt-2 border-t border-white/5">
+            <p className="text-[8px] text-text-secondary/60 mb-2 uppercase tracking-tighter">Compatible avec les standards</p>
+            <div className="flex gap-2">
+              <img src="https://cdn.simpleicons.org/amazonwebservices/232F3E" className="w-3 h-3 opacity-60" alt="AWS" referrerPolicy="no-referrer" />
+              <img src="https://cdn.simpleicons.org/googlecloud/4285F4" className="w-3 h-3 opacity-60" alt="GCP" referrerPolicy="no-referrer" />
+              <img src="https://cdn.simpleicons.org/microsoftazure/0078D4" className="w-3 h-3 opacity-60" alt="Azure" referrerPolicy="no-referrer" />
+              <img src="https://cdn.simpleicons.org/digitalocean/0080FF" className="w-3 h-3 opacity-60" alt="DO" referrerPolicy="no-referrer" />
+            </div>
+          </div>
+        }
       />
     </div>
   );
 }
 
-function FloatingCard({ icon, label, value, className, delay }: { icon: React.ReactNode; label: string; value: string; className: string; delay: number }) {
+function FloatingCard({ icon, label, value, className, delay, extra }: { icon: React.ReactNode; label: string; value: string; className: string; delay: number; extra?: React.ReactNode }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20, scale: 0.9 }}
@@ -127,15 +138,18 @@ function FloatingCard({ icon, label, value, className, delay }: { icon: React.Re
         y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: delay },
         scale: { delay: delay + 0.5, duration: 0.8 }
       }}
-      className={`absolute z-10 premium-card px-4 py-3 flex items-center gap-3 ${className}`}
+      className={`absolute z-10 premium-card px-4 py-3 flex flex-col gap-1 ${className}`}
     >
-      <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10">
-        {icon}
+      <div className="flex items-center gap-3">
+        <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10">
+          {icon}
+        </div>
+        <div className="flex flex-col">
+          <span className="text-[10px] text-text-secondary uppercase tracking-wider font-bold">{label}</span>
+          <span className="text-xs font-bold text-text-primary">{value}</span>
+        </div>
       </div>
-      <div className="flex flex-col">
-        <span className="text-[10px] text-text-secondary uppercase tracking-wider font-bold">{label}</span>
-        <span className="text-xs font-bold text-text-primary">{value}</span>
-      </div>
+      {extra}
     </motion.div>
   );
 }

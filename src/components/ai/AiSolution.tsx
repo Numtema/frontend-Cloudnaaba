@@ -78,8 +78,13 @@ export default function AiSolution() {
                   className="w-56 p-6 glass-card border-accent-primary/40 bg-accent-primary/5 relative"
                 >
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-accent-primary/20 flex items-center justify-center">
-                      <Cpu className="w-6 h-6 text-accent-primary" />
+                    <div className="w-10 h-10 rounded-xl bg-accent-primary/20 flex items-center justify-center p-2">
+                      <img 
+                        src="https://ollama.com/public/ollama.png" 
+                        alt="Ollama" 
+                        className="w-full h-full object-contain filter brightness-0 invert" 
+                        referrerPolicy="no-referrer"
+                      />
                     </div>
                     <div className="flex flex-col">
                       <span className="text-[11px] font-bold text-white uppercase tracking-widest">Ollama Core</span>

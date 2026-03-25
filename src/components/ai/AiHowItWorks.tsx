@@ -57,11 +57,17 @@ const steps = [
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-between p-2 rounded bg-white/5 border border-white/5">
-            <span className="text-[9px] font-medium text-white">Llama 3.1</span>
+            <div className="flex items-center gap-2">
+              <img src="https://cdn.simpleicons.org/meta" alt="Meta" className="w-3 h-3 filter brightness-0 invert" referrerPolicy="no-referrer" />
+              <span className="text-[9px] font-medium text-white">Llama 3.1</span>
+            </div>
             <span className="text-[7px] font-bold text-accent-primary uppercase">Running</span>
           </div>
           <div className="flex items-center justify-between p-2 rounded bg-white/5 border border-white/5 opacity-50">
-            <span className="text-[9px] font-medium text-white">Mistral</span>
+            <div className="flex items-center gap-2">
+              <img src="https://avatars.githubusercontent.com/u/144412038?s=200&v=4" alt="Mistral" className="w-3 h-3 filter brightness-0 invert opacity-40" referrerPolicy="no-referrer" />
+              <span className="text-[9px] font-medium text-white">Mistral</span>
+            </div>
             <span className="text-[7px] font-bold text-gray-500 uppercase">Idle</span>
           </div>
         </div>

@@ -50,7 +50,7 @@ export default function FinalCTA() {
                 </motion.button>
               </div>
 
-              <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-40 grayscale group-hover:grayscale-0 transition-all duration-500">
+              <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-40 grayscale group-hover:grayscale-0 transition-all duration-500 mb-12">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-accent-primary" />
                   <span className="text-xs font-bold uppercase tracking-[0.3em]">Souveraineté</span>
@@ -63,6 +63,16 @@ export default function FinalCTA() {
                   <div className="w-2 h-2 rounded-full bg-accent-primary" />
                   <span className="text-xs font-bold uppercase tracking-[0.3em]">Simplicité</span>
                 </div>
+              </div>
+
+              {/* Tech Stack Logos */}
+              <div className="flex flex-wrap items-center justify-center gap-8 opacity-20 grayscale group-hover:opacity-60 transition-all duration-700">
+                <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" className="h-6" referrerPolicy="no-referrer" />
+                <img src="https://cdn.simpleicons.org/github/FFFFFF" alt="GitHub" className="h-6" referrerPolicy="no-referrer" />
+                <img src="https://cdn.simpleicons.org/gitlab/FC6D26" alt="GitLab" className="h-6" referrerPolicy="no-referrer" />
+                <img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL" className="h-6" referrerPolicy="no-referrer" />
+                <img src="https://cdn.simpleicons.org/redis/DC382D" alt="Redis" className="h-6" referrerPolicy="no-referrer" />
+                <img src="https://cdn.simpleicons.org/next-dot-js/FFFFFF" alt="Next.js" className="h-6" referrerPolicy="no-referrer" />
               </div>
             </div>
           </motion.div>

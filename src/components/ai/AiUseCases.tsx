@@ -104,8 +104,8 @@ const useCases = [
     preview: (
       <div className="w-full h-full bg-black/40 rounded-xl border border-white/5 p-4 flex items-center justify-center relative">
         <div className="flex items-center gap-4">
-          <div className="w-8 h-8 rounded-lg bg-accent-primary/20 border border-accent-primary/40 flex items-center justify-center">
-            <Zap className="w-4 h-4 text-accent-primary" />
+          <div className="w-10 h-10 rounded-lg bg-accent-primary/20 border border-accent-primary/40 flex items-center justify-center p-2">
+            <img src="https://cdn.simpleicons.org/n8n" alt="n8n" className="w-full h-full object-contain filter brightness-0 invert" referrerPolicy="no-referrer" />
           </div>
           <div className="w-8 h-px bg-accent-primary/40 relative">
             <motion.div 
@@ -114,7 +114,9 @@ const useCases = [
               className="absolute top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-accent-primary shadow-[0_0_8px_#7c3aed]"
             />
           </div>
-          <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10" />
+          <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 p-2">
+            <img src="https://avatars.githubusercontent.com/u/124056254?s=200&v=4" alt="Flowise" className="w-full h-full object-contain filter brightness-0 invert opacity-40" referrerPolicy="no-referrer" />
+          </div>
         </div>
       </div>
     )

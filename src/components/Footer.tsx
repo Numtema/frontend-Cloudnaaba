@@ -54,11 +54,11 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-4">
             <div className="flex items-center gap-3 mb-8 group cursor-pointer">
-              <div className="w-10 h-10 rounded-full bg-accent-primary flex items-center justify-center shadow-lg shadow-accent-primary/20 group-hover:scale-110 transition-transform duration-500 overflow-hidden">
+              <div className="w-10 h-10 rounded-xl bg-accent-primary flex items-center justify-center shadow-lg shadow-accent-primary/20 group-hover:scale-110 transition-transform duration-500 overflow-hidden">
                 <img 
-                  src="https://cdn.phototourl.com/free/2026-03-25-7e6959d3-1a44-44f9-a676-6e8e2acf2388.png" 
+                  src="https://cdn.simpleicons.org/cloudways/FFFFFF" 
                   alt="CloudNaaba" 
-                  className="w-full h-full object-contain p-1"
+                  className="w-full h-full object-contain p-2"
                   referrerPolicy="no-referrer"
                 />
               </div>

@@ -27,8 +27,13 @@ export default function ProductPreview() {
             whileInView={{ scale: 1, opacity: 1 }}
             className="relative z-20 w-48 h-48 md:w-64 md:h-64 rounded-full bg-violet-600/10 border border-violet-500/30 flex flex-col items-center justify-center shadow-[0_0_60px_-10px_rgba(139,92,246,0.3)]"
           >
-            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-violet-600 flex items-center justify-center mb-4">
-              <Cloud className="text-white w-8 h-8 md:w-10 md:h-10" />
+            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-violet-600 flex items-center justify-center mb-4 p-4">
+              <img 
+                src="https://cdn.simpleicons.org/cloudways/FFFFFF" 
+                alt="CloudNaaba" 
+                className="w-full h-full object-contain" 
+                referrerPolicy="no-referrer"
+              />
             </div>
             <span className="text-white font-bold text-lg md:text-xl">CloudNaaba Engine</span>
             <span className="text-violet-400/60 text-xs font-mono mt-2">v2.4.0 Actif</span>
@@ -42,10 +47,13 @@ export default function ProductPreview() {
               initial={{ x: -100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="absolute -translate-x-[200px] md:-translate-x-[350px] flex flex-col items-center gap-4"
+              className="absolute -translate-x-[200px] md:-translate-x-[350px] flex flex-col items-center gap-4 group"
             >
-              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/[0.02] border border-white/10 flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.05)]">
-                <GitBranch className="text-white/60 w-8 h-8" />
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/[0.02] border border-white/10 flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.05)] group-hover:border-accent-primary/30 transition-all">
+                <div className="flex gap-2">
+                  <img src="https://cdn.simpleicons.org/github/FFFFFF" alt="GitHub" className="w-6 h-6 opacity-40 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
+                  <img src="https://cdn.simpleicons.org/gitlab/FC6D26" alt="GitLab" className="w-6 h-6 opacity-40 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
+                </div>
               </div>
               <div className="text-center">
                 <p className="text-white font-medium">Code Source</p>
@@ -58,10 +66,15 @@ export default function ProductPreview() {
               initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="absolute translate-x-[200px] md:translate-x-[350px] flex flex-col items-center gap-4"
+              className="absolute translate-x-[200px] md:translate-x-[350px] flex flex-col items-center gap-4 group"
             >
-              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/[0.02] border border-white/10 flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.05)]">
-                <Database className="text-white/60 w-8 h-8" />
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/[0.02] border border-white/10 flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.05)] group-hover:border-accent-primary/30 transition-all">
+                <div className="grid grid-cols-2 gap-1 p-4">
+                  <img src="https://cdn.simpleicons.org/amazonwebservices/232F3E" alt="AWS" className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
+                  <img src="https://cdn.simpleicons.org/googlecloud/4285F4" alt="GCP" className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
+                  <img src="https://cdn.simpleicons.org/microsoftazure/0078D4" alt="Azure" className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
+                  <img src="https://cdn.simpleicons.org/digitalocean/0080FF" alt="DO" className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
+                </div>
               </div>
               <div className="text-center">
                 <p className="text-white font-medium">Infrastructure</p>

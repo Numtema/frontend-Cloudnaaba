@@ -33,6 +33,7 @@ const apps = [
   { name: 'RabbitMQ', category: 'messaging', description: 'Agent de messages open source le plus déployé.', logo: 'https://cdn.simpleicons.org/rabbitmq' },
   { name: 'Kafka', category: 'messaging', description: 'Plateforme de streaming d\'événements distribuée.', logo: 'https://cdn.simpleicons.org/apachekafka' },
   { name: 'Next.js', category: 'framework', description: 'Le framework React pour le web.', logo: 'https://cdn.simpleicons.org/nextdotjs' },
+  { name: 'Node.js', category: 'framework', description: 'Environnement d\'exécution JavaScript côté serveur.', logo: 'https://cdn.simpleicons.org/nodedotjs' },
   { name: 'Ollama', category: 'ai', description: 'Faites tourner des LLM localement en toute simplicité.', logo: 'https://ollama.com/public/ollama.png' },
   { name: 'FlowiseAI', category: 'ai', description: 'Interface drag & drop pour construire des apps LLM.', logo: 'https://flowiseai.com/favicon.ico' },
 ];

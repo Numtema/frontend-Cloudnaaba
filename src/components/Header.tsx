@@ -25,29 +25,37 @@ export default function Header({ onMarketplaceClick, onLogoClick }: { onMarketpl
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 h-[76px] flex items-center ${
-        isScrolled ? 'glass-header' : 'bg-transparent'
+      className={`fixed z-50 transition-all duration-500 flex items-center left-0 right-0 ${
+        isScrolled 
+          ? 'top-4 mx-4 md:mx-auto max-w-[1200px] h-[64px] rounded-full border border-white/10 bg-black/40 backdrop-blur-lg shadow-[0_8px_32px_rgba(0,0,0,0.4)]' 
+          : 'top-0 w-full h-[80px] bg-transparent border-transparent'
       }`}
     >
-      <div className="container mx-auto max-w-[1240px] px-6 flex items-center justify-between">
+      <div className={`container mx-auto flex items-center justify-between transition-all duration-500 ${
+        isScrolled ? 'px-8' : 'px-6'
+      }`}>
         {/* Logo Block */}
         <div 
-          className="flex items-center gap-3 shrink-0 cursor-pointer"
+          className="flex items-center gap-3 shrink-0 cursor-pointer group"
           onClick={() => {
             if (onLogoClick) onLogoClick();
             else window.location.href = '/';
           }}
         >
-          <div className="relative w-11 h-11 bg-accent-primary rounded-full flex items-center justify-center border-2 border-accent-primary/20 overflow-hidden shadow-[0_0_15px_rgba(124,58,237,0.3)]">
+          <div className={`relative transition-all duration-500 bg-accent-primary rounded-xl flex items-center justify-center border-2 border-accent-primary/20 overflow-hidden shadow-[0_0_15px_rgba(124,58,237,0.3)] ${
+            isScrolled ? 'w-9 h-9' : 'w-11 h-11'
+          }`}>
             <img 
-              src="https://cdn.phototourl.com/free/2026-03-25-7e6959d3-1a44-44f9-a676-6e8e2acf2388.png" 
+              src="https://cdn.simpleicons.org/cloudways/FFFFFF" 
               alt="CloudNaaba" 
-              className="w-full h-full object-contain p-1 relative z-10"
+              className="w-full h-full object-contain p-2 relative z-10"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-br from-accent-primary to-black/40 opacity-40" />
           </div>
-          <span className="text-xl font-black tracking-tighter font-display text-text-primary">
+          <span className={`font-black tracking-tighter font-display text-text-primary transition-all duration-500 ${
+            isScrolled ? 'text-lg' : 'text-xl'
+          }`}>
             Cloud<span className="text-accent-primary">Naaba</span>
           </span>
         </div>
@@ -64,36 +72,42 @@ export default function Header({ onMarketplaceClick, onLogoClick }: { onMarketpl
                     link.onClick();
                   }
                 }}
-                className="text-[15px] font-medium text-text-secondary hover:text-text-primary transition-colors duration-150"
+                className={`font-medium text-text-secondary hover:text-text-primary transition-all duration-300 ${
+                  isScrolled ? 'text-[13px]' : 'text-[15px]'
+                }`}
               >
                 {link.name}
               </a>
               {link.badge && (
-                <span className="px-1.5 py-0.5 rounded-full bg-violet-main/12 border border-violet-main/20 text-violet-alt text-[10px] font-bold">
+                <span className="px-1.5 py-0.5 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-accent-primary text-[9px] font-bold">
                   {link.badge}
                 </span>
               )}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-violet-main transition-all duration-200 group-hover:w-full opacity-0 group-hover:opacity-100" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-primary transition-all duration-300 group-hover:w-full opacity-0 group-hover:opacity-100" />
             </div>
           ))}
         </nav>
 
         {/* Actions Right */}
-        <div className="flex items-center gap-6">
-          <button className="hidden sm:block text-[15px] font-medium text-text-secondary hover:text-text-primary transition-all relative group">
+        <div className="flex items-center gap-4 md:gap-6">
+          <button className={`hidden sm:block font-medium text-text-secondary hover:text-text-primary transition-all relative group ${
+            isScrolled ? 'text-[13px]' : 'text-[15px]'
+          }`}>
             Se connecter
             <span className="absolute bottom-0 left-0 w-full h-[1px] bg-text-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200" />
           </button>
-          <button className="bg-violet-main hover:bg-violet-alt text-white px-5 py-2.5 rounded-[10px] text-[15px] font-bold transition-all violet-glow-btn">
+          <button className={`bg-accent-primary hover:bg-accent-primary/80 text-white font-bold transition-all shadow-[0_0_20px_rgba(124,58,237,0.2)] hover:shadow-[0_0_25px_rgba(124,58,237,0.4)] ${
+            isScrolled ? 'px-4 py-2 rounded-full text-[13px]' : 'px-5 py-2.5 rounded-[10px] text-[15px]'
+          }`}>
             Commencer
           </button>
           
           {/* Burger Menu */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-text-primary p-1"
+            className="lg:hidden text-text-primary p-1 hover:text-accent-primary transition-colors"
           >
-            {mobileMenuOpen ? <X /> : <Menu />}
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -102,35 +116,36 @@ export default function Header({ onMarketplaceClick, onLogoClick }: { onMarketpl
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 top-[76px] bg-bg z-40 lg:hidden p-6 flex flex-col gap-6"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className={`fixed left-4 right-4 z-40 lg:hidden p-6 flex flex-col gap-4 rounded-[2rem] border border-white/10 bg-black/90 backdrop-blur-xl shadow-2xl ${
+              isScrolled ? 'top-24' : 'top-24'
+            }`}
           >
             {navLinks.map((link) => (
               <a 
                 key={link.name}
                 href={link.href}
-                className="text-2xl font-bold flex items-center justify-between border-b border-border-subtle pb-4"
+                className="text-xl font-bold flex items-center justify-between border-b border-white/5 pb-4 text-text-primary hover:text-accent-primary transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="flex items-center gap-3">
                   {link.name}
                   {link.badge && (
-                    <span className="text-xs bg-violet-main/20 text-violet-alt px-2 py-0.5 rounded-full">
+                    <span className="text-[10px] bg-accent-primary/20 text-accent-primary px-2 py-0.5 rounded-full uppercase tracking-widest">
                       {link.badge}
                     </span>
                   )}
                 </span>
-                <ChevronRight className="text-violet-main" />
+                <ChevronRight className="w-5 h-5 text-accent-primary" />
               </a>
             ))}
-            <div className="mt-auto flex flex-col gap-4">
-              <button className="w-full py-4 rounded-xl border border-border-subtle font-bold">
+            <div className="mt-4 flex flex-col gap-3">
+              <button className="w-full py-4 rounded-xl border border-white/10 font-bold text-text-primary hover:bg-white/5 transition-colors">
                 Se connecter
               </button>
-              <button className="w-full py-4 rounded-xl bg-violet-main font-bold">
+              <button className="w-full py-4 rounded-xl bg-accent-primary font-bold text-white shadow-[0_0_20px_rgba(124,58,237,0.3)]">
                 Commencer maintenant
               </button>
             </div>
