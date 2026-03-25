@@ -47,6 +47,15 @@ Ce document répertorie tous les boutons d'action de l'application et leur état
 | Pricing: "Choisir Business" | Modal Signup | ✅ Connecté |
 | Pricing: "Parler à un expert" | Modal Contact | ✅ Connecté |
 | Included: "En savoir plus" | Modal Contact | ✅ Connecté |
+| Decision: "Découverte" | Modal Signup | ✅ Connecté |
+| Decision: "Pro" | Modal Signup | ✅ Connecté |
+| Decision: "Business" | Modal Contact | ✅ Connecté |
+| Configurator: "Choisir cette configuration" | Modal Signup | ✅ Connecté |
+| Hybrid: "En savoir plus sur l'hybride" | Page Hybrid | ✅ Connecté |
+| Migration: "Démarrer la migration" | Modal Contact | ✅ Connecté |
+| Private Cloud: "Parler à un expert" | Modal Contact | ✅ Connecté |
+| Final CTA: "Commencer" | Modal Signup | ✅ Connecté |
+| Final CTA: "Parler à l'équipe" | Modal Contact | ✅ Connecté |
 
 ## 🧭 Navigation Globale
 | Bouton | Action | État |
