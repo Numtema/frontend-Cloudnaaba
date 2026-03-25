@@ -9,8 +9,13 @@ const steps = [
     icon: <Box className="w-6 h-6" />,
     visual: (
       <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-black/40 rounded-xl border border-white/5">
-        <div className="w-12 h-12 rounded-xl bg-accent-primary/20 flex items-center justify-center mb-4 border border-accent-primary/40">
-          <Box className="w-6 h-6 text-accent-primary" />
+        <div className="w-12 h-12 rounded-xl bg-accent-primary/20 flex items-center justify-center mb-4 border border-accent-primary/40 p-2">
+          <img 
+            src="https://ollama.com/public/ollama.png" 
+            alt="Ollama" 
+            className="w-full h-full object-contain filter brightness-0 invert" 
+            referrerPolicy="no-referrer"
+          />
         </div>
         <div className="px-4 py-2 rounded-lg bg-accent-primary text-[10px] font-bold text-white uppercase tracking-widest shadow-[0_0_15px_rgba(124,58,237,0.4)]">
           Deploy

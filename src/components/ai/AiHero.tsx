@@ -98,7 +98,12 @@ export default function AiHero() {
                   className="w-32 h-32 rounded-[32px] bg-bg-elevated border-2 border-accent-primary/40 flex flex-col items-center justify-center relative overflow-hidden group"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/20 to-transparent" />
-                  <Cpu className="w-10 h-10 text-accent-primary mb-2 relative z-10" />
+                  <img 
+                    src="https://ollama.com/public/ollama.png" 
+                    alt="Ollama" 
+                    className="w-12 h-12 object-contain mb-2 relative z-10 filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300" 
+                    referrerPolicy="no-referrer"
+                  />
                   <span className="text-[10px] font-black uppercase tracking-widest text-white relative z-10">Ollama</span>
                   <span className="text-[8px] font-bold text-accent-primary/60 relative z-10">RUNTIME</span>
                 </motion.div>

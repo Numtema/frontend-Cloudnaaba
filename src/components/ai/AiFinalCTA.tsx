@@ -71,10 +71,17 @@ export default function AiFinalCTA() {
 
             {/* Bonus Tech Stack */}
             <div className="pt-12 border-t border-white/5">
-              <p className="text-[10px] font-bold text-white/20 uppercase tracking-[0.4em] mb-4">Stack compatible</p>
-              <p className="text-sm font-medium text-white/40 tracking-widest">
-                Ollama • FlowiseAI • PostgreSQL • Redis • MongoDB • n8n • Next.js… déployables en quelques clics
-              </p>
+              <p className="text-[10px] font-bold text-white/20 uppercase tracking-[0.4em] mb-8">Stack compatible</p>
+              <div className="flex flex-wrap items-center justify-center gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+                <img src="https://cdn.simpleicons.org/postgresql" alt="PostgreSQL" className="h-6 w-auto filter brightness-0 invert" referrerPolicy="no-referrer" />
+                <img src="https://cdn.simpleicons.org/redis" alt="Redis" className="h-6 w-auto filter brightness-0 invert" referrerPolicy="no-referrer" />
+                <img src="https://cdn.simpleicons.org/mongodb" alt="MongoDB" className="h-6 w-auto filter brightness-0 invert" referrerPolicy="no-referrer" />
+                <img src="https://cdn.simpleicons.org/gitlab" alt="GitLab" className="h-6 w-auto filter brightness-0 invert" referrerPolicy="no-referrer" />
+                <img src="https://cdn.simpleicons.org/nextdotjs" alt="Next.js" className="h-6 w-auto filter brightness-0 invert" referrerPolicy="no-referrer" />
+                <img src="https://cdn.simpleicons.org/apachekafka" alt="Kafka" className="h-6 w-auto filter brightness-0 invert" referrerPolicy="no-referrer" />
+                <img src="https://cdn.simpleicons.org/rabbitmq" alt="RabbitMQ" className="h-6 w-auto filter brightness-0 invert" referrerPolicy="no-referrer" />
+                <img src="https://ollama.com/public/ollama.png" alt="Ollama" className="h-6 w-auto filter brightness-0 invert" referrerPolicy="no-referrer" />
+              </div>
             </div>
           </motion.div>
 
